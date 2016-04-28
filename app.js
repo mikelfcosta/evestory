@@ -24,23 +24,8 @@ var accessLogStream = FileStreamRotator.getStream({
     frequency: 'daily',
     verbose: false
 });
-
 app.use(logger('dev', {stream: accessLogStream}));
 
-// Database
-var mysql = require('mysql');
-var connection = require('express-myconnection');
-
-app.use(
-    connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : '',
-        port : 3306,
-        database:'evestory',
-        connectionLimit: 100
-    },'pool')
-);
 
 // Set middlewares
 app.use(bodyParser.json({limit:'10mb'}));
@@ -75,43 +60,10 @@ app.use(function(err, req, res, next) {
     //next(err);
 });
 
-// oAuth Facebook Login
-passport.use(new Strategy({
-    clientID: 202347170151492,
-    clientSecret: 'a2d9b4ecd0b47c167fd93c41428e20b4',
-    callbackURL: 'http://locahost/login/facebook/return'
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }));
-
-// Passport Setup
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser(function(user, cb) {
-  cb(err, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(err, obj);
-});
-
 // Login Routes
 app.get('*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
-
-app.get('/login/facebook',
-  passport.authenticate('facebook'));
-
-app.get('/login/facebook/return',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
-  function(req, res) {
-    res.redirect('/');
-  });
 
 // Start Server
 console.log('Server opened at port ' + port);
