@@ -14,20 +14,6 @@ angular
 "use strict";
 /**
  * Created by Mikel on 4/21/2016.
- * @Description: Coordena todas as funções de Autenticação com o Servidor.
- */
-angular
-    .module('eveCore')
-    .controller('authController', authController);
-
-function authController() {
-
-}
-})();
-(function(){
-"use strict";
-/**
- * Created by Mikel on 4/21/2016.
  * @Description: Modulo núcleo do projeto. Listagem de todas as dependências do Eve Project.
  */
 
@@ -81,6 +67,20 @@ angular
                 controllerAs: 'eve'
             });
         });
+})();
+(function(){
+"use strict";
+/**
+ * Created by Mikel on 4/21/2016.
+ * @Description: Coordena todas as funções de Autenticação com o Servidor.
+ */
+angular
+    .module('eveCore')
+    .controller('authController', authController);
+
+function authController() {
+
+}
 })();
 (function(){
 "use strict";
