@@ -3,5 +3,71 @@
     Version: 0.1.0
     Authors: NaN (Michel Costa)
 */
+@import 'eve/bootstrap';
 
-@import 'eve/bootstrap'; 
+body {
+  background-image: url("/images/background.png");
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
+  z-index: 0;
+}
+
+// Center Content
+.parent {
+  display: table;
+  table-layout: fixed;
+}
+
+.child {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vcenter {
+  color: #3A6F87;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+// Center Content
+
+.facebook-connect {
+  background-color: #09161E;
+  border-radius: 5px;
+  border: 1px solid #9C7B33;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+}
+
+.act-circle {
+  background-color: #09161E;
+  border-radius: 50%;
+  border: 1px solid #9C7B33;
+  color: white;
+  height: 100px;
+  width: 100px !important;
+}
+
+// Sticky Footer
+$footerheight: 100px;
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footerheight;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footerheight;
+}

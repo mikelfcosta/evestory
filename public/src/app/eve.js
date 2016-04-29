@@ -5,5 +5,6 @@
 angular
     .module('eve', [
         'eveCore',
-        'eveLayout'
+        'eveLayout',
+        'eveAnimations'
     ]);

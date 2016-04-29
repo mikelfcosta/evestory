@@ -20,5 +20,19 @@ angular
                 templateUrl: 'app/home.html',
                 controller: 'authController',
                 controllerAs: 'eve'
-            });
-        });
+            })
+            .state('animations', {
+                url: '/animation',
+                abstract: true,
+                templateUrl: 'app/animations/layout.html'
+            })
+            .state('animations.act05', {
+                url: '/act05',
+                templateUrl: 'app/animations/act05.html',
+                controller: 'act05Controller',
+                controllerAs: 'animation'
+            })
+    })
+    .run(function ($rootScope) {
+        $rootScope.$on("$stateChangeError", console.log.bind(console));
+    });
