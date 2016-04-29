@@ -4,8 +4,8 @@ var p; // shortcut to reference prototypes
 
 // library properties:
 lib.properties = {
-	width: 1920,
-	height: 1080,
+	width: 1280,
+	height: 720,
 	fps: 30,
 	color: "#FFFFFF",
 	manifest: []
